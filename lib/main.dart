@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'screens/StateScreen.dart';
+import 'screens/ToolsScreen.dart';
 import 'screens/registerScreen.dart';
 import 'screens/profileScreen.dart';
 import 'screens/welcomeScreen.dart';
@@ -14,7 +15,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+ 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => ProfileScreen(),
         '/welcome': (context) => WelcomeScreen(),
         '/settings': (context) => SettingsScreen(),
+        '/emlak': (context) => StateScreen(),
+        '/parca': (context) => ToolsScreen(),
+        
       },
       initialRoute: '/welcome',
       theme: ThemeData(

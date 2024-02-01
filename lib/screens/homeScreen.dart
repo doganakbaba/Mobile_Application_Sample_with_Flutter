@@ -8,6 +8,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Sahibinden"),
+        backgroundColor: Colors.yellow,
       ),
       drawer: Drawer(
         child: Column(
@@ -40,7 +41,9 @@ class HomeScreen extends StatelessWidget {
                       size: 20,
                       color: Colors.yellow,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, "/emlak");
+                    },
                   ),
                   MenuItem(
                     title: "Yedek Parça ve Aksesuar",
@@ -49,12 +52,14 @@ class HomeScreen extends StatelessWidget {
                       size: 20,
                       color: const Color.fromARGB(255, 0, 57, 104),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, "/parca");
+                      },
                   ),
                   MenuItem(
                     title: "Özel Ders Verenler",
                     icon: Icon(
-                      Icons.front_loader,
+                      Icons.school,
                       size: 20,
                       color: Colors.green,
                     ),

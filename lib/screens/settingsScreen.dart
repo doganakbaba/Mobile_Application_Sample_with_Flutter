@@ -1,73 +1,179 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-void main() {
-  runApp(MyApp());
+class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({Key? key}) : super(key: key);
+
+
+  
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class MyApp extends StatelessWidget {
+class _SettingsScreenState extends State<SettingsScreen> {
+  bool _isDark = false;
+  bool _notificationsEnabled = true; 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SettingsScreen(),
+      debugShowCheckedModeBanner: false,
+      theme: _isDark ? ThemeData.dark() : ThemeData.light(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Ayarlar"),
+          backgroundColor: _isDark ? Colors.grey : Colors.yellow,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+        body: Center(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: ListView(
+              children: [
+                _SingleSection(
+                  title: "Genel",
+                  children: [
+                    _CustomListTile(
+                      title: "Koyu Mod",
+                      icon: Icons.dark_mode_outlined,
+                      trailing: Switch(
+                        value: _isDark,
+                        onChanged: (value) {
+                          setState(() {
+                            _isDark = value;
+                          });
+                        },
+                      ),
+                    ),
+                    _CustomListTile(
+                      title: "Bildirimler",
+                      icon: Icons.notifications_none_rounded,
+                      trailing: Switch(
+                        value: _notificationsEnabled,
+                        onChanged: (value) {
+                          setState(() {
+                            _notificationsEnabled = value;
+                          });
+                        },
+                      ),
+                    ),
+                    const _CustomListTile(
+                      title: "Güvenlik Durumu",
+                      icon: CupertinoIcons.lock_shield,
+                    ),
+                  ],
+                ),
+                const Divider(),
+                const _SingleSection(
+                  title: "İletişim",
+                  children: [
+                    _CustomListTile(
+                      title: "Profiliniz",
+                      icon: Icons.person_outline_rounded,
+                      
+                    ),
+                    _CustomListTile(
+                      title: "Bize E-Posta Gönderin",
+                      icon: Icons.message_outlined,
+                    ),
+                    _CustomListTile(
+                      title: "Bizi Arayın",
+                      icon: Icons.phone_outlined,
+                      
+                      
+                    ),
+                    _CustomListTile(
+                      title: "Sahibinden'e Davet Edin",
+                      icon: Icons.contacts_outlined,
+                    ),
+                    _CustomListTile(
+                      title: "Takvim",
+                      icon: Icons.calendar_today_rounded,
+                    ),
+                  ],
+                ),
+                const Divider(),
+                const _SingleSection(
+                  children: [
+                    _CustomListTile(
+                      title: "Yardım & Geribildirim",
+                      icon: Icons.help_outline_rounded,
+                    ),
+                    _CustomListTile(
+                      title: "Geliştirici Ekibi Hakkında",
+                      icon: Icons.info_outline_rounded,
+                    ),
+                    _CustomListTile(
+                      title: "Çıkış Yap",
+                      icon: Icons.exit_to_app_rounded,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
 
-class SettingsScreen extends StatefulWidget {
-  @override
-  _SettingsScreenState createState() => _SettingsScreenState();
-}
-
-class _SettingsScreenState extends State<SettingsScreen> {
-  bool _isSwitched = false;
-  String _selectedOption = 'Türkçe';
-  List<String> _options = ['Türkçe', 'İngilizce', 'Almanca'];
+class _CustomListTile extends StatelessWidget {
+  final String title;
+  final IconData icon;
+  final Widget? trailing;
+  const _CustomListTile({
+    Key? key,
+    required this.title,
+    required this.icon,
+    this.trailing,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Ayarlar'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Mobil Bildirimler:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+    return ListTile(
+      title: Text(title),
+      leading: Icon(icon),
+      trailing: trailing,
+      onTap: () {},
+    );
+  }
+}
+
+class _SingleSection extends StatelessWidget {
+  final String? title;
+  final List<Widget> children;
+  const _SingleSection({
+    Key? key,
+    this.title,
+    required this.children,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (title != null)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              title!,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            Switch(
-              value: _isSwitched,
-              onChanged: (value) {
-                setState(() {
-                  _isSwitched = value;
-                });
-              },
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Dil Seçiniz:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            DropdownButton<String>(
-              value: _selectedOption,
-              onChanged: (String? newValue) {
-                setState(() {
-                  _selectedOption = newValue!;
-                });
-              },
-              items: _options.map((String option) {
-                return DropdownMenuItem<String>(
-                  value: option,
-                  child: Text(option),
-                );
-              }).toList(),
-            ),
-          ],
+          ),
+        Column(
+          children: children,
         ),
-      ),
+      ],
     );
   }
 }
