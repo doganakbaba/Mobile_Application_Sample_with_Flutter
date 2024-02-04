@@ -13,8 +13,7 @@ class _MyRegisterPageState extends State<RegisterScreen> {
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      // TODO: Implement registration logic
-      // Örnek: AuthService.register(_email, _password);
+     
     }
   }
 
@@ -43,14 +42,14 @@ class _MyRegisterPageState extends State<RegisterScreen> {
                 padding: const EdgeInsets.all(16.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: 'Email Adresiniz',
                     border: OutlineInputBorder(),
                     filled: true,
                     fillColor: Colors.white,
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
+                      return 'Lütfen E-mail hesabınızı giriniz';
                     }
                     return null;
                   },
@@ -65,14 +64,14 @@ class _MyRegisterPageState extends State<RegisterScreen> {
                 padding: const EdgeInsets.all(16.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText: 'Şifre',
                     border: OutlineInputBorder(),
                     filled: true,
                     fillColor: Colors.white,
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
+                      return 'Lütfen şifrenizi giriniz';
                     }
                     return null;
                   },
@@ -88,17 +87,17 @@ class _MyRegisterPageState extends State<RegisterScreen> {
                 padding: const EdgeInsets.all(16.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Confirm Password',
+                    labelText: 'Şifreyi Onaylayınız',
                     border: OutlineInputBorder(),
                     filled: true,
                     fillColor: Colors.white,
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please confirm your password';
+                      return 'Lütfen şifrenizi tekrar giriniz';
                     }
                     if (value != _password) {
-                      return 'Passwords do not match';
+                      return 'Girdiğiniz şifreler eşleşmemektedir';
                     }
                     return null;
                   },
