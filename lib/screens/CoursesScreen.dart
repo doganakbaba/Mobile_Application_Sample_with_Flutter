@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ToolsScreen extends StatelessWidget {
+class CoursesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Ekran genişliğini al
     double screenWidth = MediaQuery.of(context).size.width;
-
-    // Yatayda kaç tane öğe gösterileceğini belirle
     int crossAxisCount = (screenWidth / 200).floor(); // 200, her bir kartın minimum genişliğidir
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Yedek Parça ve Aksesuar İlanları"),
+        title: Text("Özel Ders İlanları"),
       ),
       body: GridView.builder(
         padding: EdgeInsets.all(16),
@@ -75,22 +72,24 @@ class StateIlanWidget extends StatelessWidget {
 
 // İlan listesi
 List<Ilan> ilanListesi = [
-  Ilan(image: 'assets/images/yp1.png', text: 'ORJİNAL SKODA SUPERB JANT'),
+  Ilan(image: 'assets/images/ders1.png', text: 'ARADIĞIN İNGİLİZCE KURSU'),
+  Ilan(image: 'assets/images/ders2.png', text: 'Özel ders, ödev takip ve konu pekiştirme.'),
+  Ilan(image: 'assets/images/ders3.png', text: 'Severek ve eğlenerek İngilizcemizi geliştirelim :)'),
   Ilan(
-      image: 'assets/images/yp2.png',
-      text: '2019/2022 MODEL COROLLA KAPUT'),
+      image: 'assets/images/ders4.png',
+      text: 'İNGİLİZCEYİ HATASIZ KONUŞUN'),
   Ilan(
-      image: 'assets/images/yp3.png',
-      text: 'PRIME CAR dan F10 525xd Sandık Motor '),
-  Ilan(image: 'assets/images/yp4.png', text: 'Opel astra K 2018 model sol far'),
-  Ilan(image: 'assets/images/yp5.png', text: 'Vibe 25 cm komple tesisat'),
+      image: 'assets/images/ders5.png',
+      text: 'KURAN ARAPÇASI ÖZEL DERS UYGULAMALI'),
   Ilan(
-      image: 'assets/images/yp6.png',
-      text: 'CHEVROLET CRUZE TESLA ANDROİD CARPLAY'),
+      image: 'assets/images/ders6.png',
+      text: 'Dilkoda İngilizce- Almanca İki kur Dil eğitimi'),
   Ilan(
-      image: 'assets/images/yp7.png',
-      text: 'VOLKWAGEN GOLF7 PASSAT MULTİMEDYA'),
-  Ilan(image: 'assets/images/yp8.png', text: 'BMW F36 BODY KİT M TECH'),
+      image: 'assets/images/ders7.png',
+      text: '2023 KPSS Türkiye 43. Matematik Özel Ders'),
+  Ilan(
+      image: 'assets/images/ders8.png',
+      text: 'MATEMATİK TEDAVİSİ'),
 ];
 
 // İlan sınıfı

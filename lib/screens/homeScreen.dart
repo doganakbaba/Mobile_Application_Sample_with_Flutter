@@ -63,16 +63,20 @@ class HomeScreen extends StatelessWidget {
                       size: 20,
                       color: Colors.green,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, "/kurs");
+                    },
                   ),
                   MenuItem(
-                    title: "İş İlanları",
+                    title: "İkinci El Ürün İlanları",
                     icon: Icon(
                       Icons.shopping_cart,
                       size: 20,
                       color: const Color.fromARGB(255, 1, 92, 4),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, "/ikinciel");
+                    },
                   ),
                   MenuItem(
                     title: "Hayvanlar Alemi",

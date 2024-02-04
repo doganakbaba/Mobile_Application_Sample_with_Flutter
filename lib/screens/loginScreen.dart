@@ -1,61 +1,109 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  @override
+  _MyRegisterPageState createState() => _MyRegisterPageState();
+}
+
+class _MyRegisterPageState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+  String _email = '';
+  String _password = '';
+  
+
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {
+    
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Giriş Yap"),
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(28.0),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.yellow[200],
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.yellow[400]!,
+              Colors.yellow[200]!,
+            ],
+          ),
+        ),
+        child: Form(
+          key: _formKey,
+          autovalidateMode: AutovalidateMode.always,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Kullanıcı Adınız: "),
-              SizedBox(height: 5),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(49, 138, 138, 138),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: TextField(
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Kullanıcı Adınız",
+                    labelText: 'Email',
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    fillColor: Colors.white,
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Lütfen E-mail adresinizi giriniz';
+                    }
+                    return null;
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _email = value;
+                    });
+                  },
                 ),
               ),
-              SizedBox(height: 10),
-              Text("Şifrenizi Giriniz: "),
-              SizedBox(height: 5),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(49, 138, 138, 138),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: TextField(
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Şifreniz",
+                    labelText: 'Şifreniz',
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    fillColor: Colors.white,
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Lütfen şifrenizi giriniz';
+                    }
+                    return null;
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _password = value;
+                    });
+                  },
+                  obscureText: true,
                 ),
               ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
+             
+                
+                  
+                
+              
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(
                     onPressed: () {
                       Navigator.pushNamedAndRemoveUntil(
                           context, "/home", (Route<dynamic> route) => false);
                     },
-                    child: Text("Login"),
+                  child: Text('Giriş Yap'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.yellow[800],
+                    onPrimary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
                   ),
-                ],
+                ),
               ),
             ],
           ),
@@ -63,4 +111,10 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: LoginScreen(),
+  ));
 }

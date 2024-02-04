@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ToolsScreen extends StatelessWidget {
+class ShopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Ekran genişliğini al
     double screenWidth = MediaQuery.of(context).size.width;
-
-    // Yatayda kaç tane öğe gösterileceğini belirle
     int crossAxisCount = (screenWidth / 200).floor(); // 200, her bir kartın minimum genişliğidir
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Yedek Parça ve Aksesuar İlanları"),
+        title: Text("İkinci El Alışveriş İlanları"),
       ),
       body: GridView.builder(
         padding: EdgeInsets.all(16),
@@ -75,22 +72,24 @@ class StateIlanWidget extends StatelessWidget {
 
 // İlan listesi
 List<Ilan> ilanListesi = [
-  Ilan(image: 'assets/images/yp1.png', text: 'ORJİNAL SKODA SUPERB JANT'),
+  Ilan(image: 'assets/images/ie1.png', text: '10.000 LT DİKEY SU VE SIVI DEPOLAMA TANKI'),
+  Ilan(image: 'assets/images/ie2.png', text: '240W KİNG BRİTE SAMSUNG LM301'),
+  Ilan(image: 'assets/images/ie3.png', text: 'Koltuk Takımı'),
   Ilan(
-      image: 'assets/images/yp2.png',
-      text: '2019/2022 MODEL COROLLA KAPUT'),
+      image: 'assets/images/ie4.png',
+      text: '2 Aylık iPad Pro 3. Nesil 256 GB 11 İnç'),
   Ilan(
-      image: 'assets/images/yp3.png',
-      text: 'PRIME CAR dan F10 525xd Sandık Motor '),
-  Ilan(image: 'assets/images/yp4.png', text: 'Opel astra K 2018 model sol far'),
-  Ilan(image: 'assets/images/yp5.png', text: 'Vibe 25 cm komple tesisat'),
+      image: 'assets/images/ie5.png',
+      text: 'Ipad 12.9 inc 256GB 5. Nesil'),
   Ilan(
-      image: 'assets/images/yp6.png',
-      text: 'CHEVROLET CRUZE TESLA ANDROİD CARPLAY'),
+      image: 'assets/images/ie6.png',
+      text: 'Temiz CASPER EXCALIBUR G670'),
   Ilan(
-      image: 'assets/images/yp7.png',
-      text: 'VOLKWAGEN GOLF7 PASSAT MULTİMEDYA'),
-  Ilan(image: 'assets/images/yp8.png', text: 'BMW F36 BODY KİT M TECH'),
+      image: 'assets/images/ie7.png',
+      text: 'ATOM OFİS - FİLELİ ÇALIŞMA SANDALYESİ'),
+  Ilan(
+      image: 'assets/images/ie8.png',
+      text: 'IMALATTAN İŞÇİ RANZASI YATAK '),
 ];
 
 // İlan sınıfı

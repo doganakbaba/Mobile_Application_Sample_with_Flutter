@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:navigation_app/screens/CoursesScreen.dart';
+import 'package:navigation_app/screens/ShopScreen.dart';
 import 'screens/StateScreen.dart';
 import 'screens/ToolsScreen.dart';
 import 'screens/registerScreen.dart';
@@ -7,6 +9,7 @@ import 'screens/welcomeScreen.dart';
 import 'screens/loginScreen.dart';
 import 'screens/homeScreen.dart';
 import 'screens/settingsScreen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Sahibinden',
       debugShowCheckedModeBanner: false,
       routes: {
         '/home': (context) => HomeScreen(),
@@ -30,6 +33,9 @@ class MyApp extends StatelessWidget {
         '/settings': (context) => SettingsScreen(),
         '/emlak': (context) => StateScreen(),
         '/parca': (context) => ToolsScreen(),
+        '/kurs' : (context) => CoursesScreen(),
+        '/ikinciel' : (context) => ShopScreen()
+
         
       },
       initialRoute: '/welcome',
