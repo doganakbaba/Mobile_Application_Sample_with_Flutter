@@ -1,5 +1,5 @@
 Hello and welcome.
-I would like to introduce my Midterm Project.
+I would like to introduce my Final Project.
 This mobile application is similar to sahibinden.com, a Turkish classifieds and shopping site.
 There is no database connection and it is just a front-end design project.
 I would like to thank my teacher @keyvanarasteh for his support.
