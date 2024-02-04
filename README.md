@@ -11,6 +11,7 @@ I would like to thank my teacher @keyvanarasteh for his support.
 
 ![Android Emulator - Pixel_3a_API_34_extension_level_7_x86_64_5554 17 12 2023 22_02_41](https://github.com/doganakbaba/Mobile_Application_Sample_with_Flutter/assets/127808421/5ccfe708-81c7-47a1-b38f-c5d8e6a2fc48)
 
-![Android Emulator - Pixel_3a_API_34_extension_level_7_x86_64_5554 17 12 2023 22_02_24](https://github.com/doganakbaba/Mobile_Application_Sample_with_Flutter/assets/127808421/e208967d-5e17-4c7a-a794-d6019a4a3ece)
+![Ekran görüntüsü 2024-02-04 203233](https://github.com/doganakbaba/Mobile_Application_Sample_with_Flutter/assets/127808421/e5d4786e-fdb1-40de-805a-e169fd43e3f9)
 
 ![Android Emulator - Pixel_3a_API_34_extension_level_7_x86_64_5554 17 12 2023 22_02_34](https://github.com/doganakbaba/Mobile_Application_Sample_with_Flutter/assets/127808421/39514f35-007a-4eaf-94e6-6660ee86211d)
+
